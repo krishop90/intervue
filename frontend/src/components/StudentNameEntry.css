@@ -1,0 +1,91 @@
+.name-entry-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.name-entry-card {
+  background: white;
+  border-radius: 12px;
+  padding: 48px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.name-entry-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.poll-tag {
+  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.name-entry-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #373737;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.name-entry-subtitle {
+  font-size: 16px;
+  color: #8E8E8E;
+  margin-bottom: 32px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.name-entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.name-entry-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #373737;
+}
+
+.name-entry-form input {
+  padding: 12px 16px;
+  border: 2px solid #F2F2F2;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.name-entry-form input:focus {
+  outline: none;
+  border-color: #4F0DCE;
+}
+
+.continue-button {
+  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 8px;
+}
+
+.continue-button:hover {
+  opacity: 0.9;
+}
+

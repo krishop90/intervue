@@ -1,0 +1,110 @@
+.welcome-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.welcome-card {
+  background: white;
+  border-radius: 12px;
+  padding: 48px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.welcome-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.poll-tag {
+  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.welcome-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #373737;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  color: #8E8E8E;
+  margin-bottom: 32px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.role-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.role-card {
+  border: 2px solid #F2F2F2;
+  border-radius: 8px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-card:hover {
+  border-color: #7765DA;
+  background-color: #f9f9ff;
+}
+
+.role-card.selected {
+  border-color: #4F0DCE;
+  background-color: #f5f3ff;
+}
+
+.role-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #373737;
+  margin-bottom: 8px;
+}
+
+.role-card p {
+  font-size: 14px;
+  color: #8E8E8E;
+  line-height: 1.5;
+}
+
+.continue-button {
+  width: 100%;
+  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.continue-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.continue-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
