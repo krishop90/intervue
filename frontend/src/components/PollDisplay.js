@@ -25,26 +25,28 @@ const PollDisplay = ({ isTeacher, onSubmit }) => {
   return (
     <div className="poll-display-container">
       <div className="poll-display-card">
-        <div className="poll-display-header">
-          <span className="poll-tag">Intervue Poll</span>
-        </div>
-
-        <div className="poll-question-section">
-          <div className="question-header">
-            <h2>Question 1</h2>
+        
+        <div className="question-header-row">
+            <h2 className="q-label">Question 1</h2>
             {typeof timeRemaining === 'number' && timeRemaining > 0 && (
-              <span className="timer">{formatTime(timeRemaining)}</span>
+              <span className="timer-badge">⏱ {formatTime(timeRemaining)}</span>
             )}
-          </div>
-          <h1 className="question-text">{currentQuestion}</h1>
         </div>
 
-        <div className="poll-options">
+        <div className="question-dark-box">
+             <h1 className="question-text">{currentQuestion}</h1>
+        </div>
+
+        <div className="poll-options-stack">
           {options.map((option, index) => (
-            <label
-              key={index}
-              className={`option-label ${selectedAnswer === index ? 'selected' : ''}`}
+            <div 
+                key={index} 
+                className={`option-card ${selectedAnswer === index ? 'selected' : ''}`}
+                onClick={() => !isTeacher && setSelectedAnswer(index)}
             >
+              <div className="option-indicator">{index + 1}</div>
+              <span className="option-text">{option}</span>
+              {/* Radio hidden but functional */}
               <input
                 type="radio"
                 name="poll-answer"
@@ -52,15 +54,14 @@ const PollDisplay = ({ isTeacher, onSubmit }) => {
                 checked={selectedAnswer === index}
                 onChange={() => setSelectedAnswer(index)}
                 disabled={isTeacher}
+                style={{display: 'none'}}
               />
-              <span className="option-number">{index + 1}</span>
-              <span className="option-text">{option}</span>
-            </label>
+            </div>
           ))}
         </div>
 
         {!isTeacher && (
-          <>
+          <div className="student-actions">
             <button
               className="submit-button"
               onClick={handleSubmit}
@@ -68,16 +69,18 @@ const PollDisplay = ({ isTeacher, onSubmit }) => {
             >
               Submit
             </button>
-            <p className="wait-message">Wait for the teacher to ask a new question.</p>
-          </>
+          </div>
         )}
 
         {isTeacher && (
           <div className="teacher-info">
-            <p>Students are answering...</p>
-            <p className="participant-count">
+             <div className="teacher-status-bar">
+                <span className="status-dot"></span>
+                Students are answering...
+             </div>
+             <div className="count-badge">
               {participants.filter(p => p.role === 'student' && p.hasAnswered).length} / {participants.filter(p => p.role === 'student').length} answered
-            </p>
+             </div>
           </div>
         )}
       </div>
@@ -86,4 +89,3 @@ const PollDisplay = ({ isTeacher, onSubmit }) => {
 };
 
 export default PollDisplay;
-

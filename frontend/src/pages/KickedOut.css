@@ -3,61 +3,62 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  background-color: #fff;
   padding: 20px;
 }
 
 .kicked-out-card {
-  background: white;
-  border-radius: 12px;
-  padding: 48px;
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   text-align: center;
 }
 
-.kicked-out-header {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 24px;
+.tag-wrapper {
+    margin-bottom: 30px;
 }
 
 .poll-tag {
-  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  background: #4F0DCE;
   color: white;
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
+  display: inline-flex;
+  gap: 5px;
 }
 
 .kicked-out-content h1 {
   font-size: 32px;
-  font-weight: 700;
-  color: #373737;
+  font-weight: 500;
+  color: #000;
   margin-bottom: 16px;
+}
+
+.kicked-out-content h1 strong {
+    font-weight: 700;
 }
 
 .kicked-out-content p {
   font-size: 16px;
   color: #8E8E8E;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   line-height: 1.6;
 }
 
 .try-again-button {
-  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  background: #5767D0;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 16px 32px;
+  border-radius: 25px;
+  padding: 14px 40px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  box-shadow: 0 4px 12px rgba(87, 103, 208, 0.3);
 }
 
 .try-again-button:hover {
   opacity: 0.9;
 }
-

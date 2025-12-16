@@ -24,7 +24,6 @@ const Welcome = () => {
       socket.emit('select-role', { role: 'teacher', name: 'Teacher' });
       navigate('/teacher');
     } else {
-      // For students, always collect name on the next screen
       navigate('/student');
     }
   };
@@ -32,12 +31,12 @@ const Welcome = () => {
   return (
     <div className="welcome-container">
       <div className="welcome-card">
-        <div className="welcome-header">
-          <span className="poll-tag">Intervue Poll</span>
+        <div className="welcome-header-tag">
+          <span className="poll-tag">✨ Intervue Poll</span>
         </div>
-        <h1 className="welcome-title">Welcome to the Live Polling System</h1>
+        <h1 className="welcome-title">Welcome to the <strong>Live Polling System</strong></h1>
         <p className="welcome-subtitle">
-          Please select the role that best describes you to begin using the live polling system.
+          Please select the role that best describes you to begin using the live polling system
         </p>
 
         <div className="role-selection">
@@ -45,16 +44,16 @@ const Welcome = () => {
             className={`role-card ${selectedRole === 'student' ? 'selected' : ''}`}
             onClick={() => handleRoleSelect('student')}
           >
-            <h3>I'm a Student</h3>
-            <p>Submit answers and view live poll results in real-time.</p>
+            <h3>I’m a Student</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
 
           <div
             className={`role-card ${selectedRole === 'teacher' ? 'selected' : ''}`}
             onClick={() => handleRoleSelect('teacher')}
           >
-            <h3>I'm a Teacher</h3>
-            <p>You'll have the ability to create and manage polls, ask questions, and monitor your students' responses in real-time.</p>
+            <h3>I’m a Teacher</h3>
+            <p>Submit answers and view live poll results in real-time.</p>
           </div>
         </div>
 
@@ -71,4 +70,3 @@ const Welcome = () => {
 };
 
 export default Welcome;
-

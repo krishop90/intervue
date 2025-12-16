@@ -19,15 +19,12 @@ const KickedOut = () => {
   return (
     <div className="kicked-out-container">
       <div className="kicked-out-card">
-        <div className="kicked-out-header">
-          <span className="poll-tag">Intervue Poll</span>
+        <div className="tag-wrapper">
+             <span className="poll-tag">✨ Intervue Poll</span>
         </div>
         <div className="kicked-out-content">
-          <h1>You've been Kicked out!</h1>
-          <p>Looks like the teacher had removed you from the poll system. Please Try again sometime.</p>
-          <button className="try-again-button" onClick={handleTryAgain}>
-            Try Again
-          </button>
+          <h1>You’ve been <strong>Kicked out !</strong></h1>
+          <p>Looks like the teacher had removed you from the poll system. <br/>Please Try again sometime.</p>
         </div>
       </div>
     </div>
@@ -35,4 +32,3 @@ const KickedOut = () => {
 };
 
 export default KickedOut;
-

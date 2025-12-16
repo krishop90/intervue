@@ -30,7 +30,6 @@ const TeacherDashboard = () => {
   }, [socket, dispatch]);
 
   const handleAskNewQuestion = () => {
-    // Reset poll state to allow asking a new question
     dispatch(resetPoll());
     dispatch(setPollResults({}));
     setShowHistory(false);
@@ -69,8 +68,10 @@ const TeacherDashboard = () => {
       <button
         className="chat-toggle"
         onClick={() => {
-          setChatTab('chat');
-          setShowChat(true);
+          if (!showChat) {
+             setChatTab('chat');
+          }
+          setShowChat(!showChat);
         }}
       >
         💬
@@ -91,4 +92,3 @@ const TeacherDashboard = () => {
 };
 
 export default TeacherDashboard;
-

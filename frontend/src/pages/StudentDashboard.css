@@ -1,21 +1,24 @@
 .chat-toggle {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 56px;
-  height: 56px;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7765DA 0%, #4F0DCE 100%);
+  background: #5767D0;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79, 13, 206, 0.3);
+  box-shadow: 0 4px 16px rgba(87, 103, 208, 0.4);
   transition: transform 0.3s ease;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
-

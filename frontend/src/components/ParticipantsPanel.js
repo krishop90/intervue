@@ -19,9 +19,17 @@ const ParticipantsPanel = ({ participants, onClose }) => {
     <div className="participants-panel-overlay" onClick={onClose}>
       <div className="participants-panel" onClick={(e) => e.stopPropagation()}>
         <div className="participants-panel-header">
-          <h2>Participants</h2>
+          <div className="header-title">
+            <h2>Participants <span className="count-badge">{students.length}</span></h2>
+          </div>
           <button className="close-button" onClick={onClose}>×</button>
         </div>
+        
+        <div className="participants-list-header">
+            <span>Name</span>
+            <span>Action</span>
+        </div>
+
         <div className="participants-list">
           {students.length === 0 ? (
             <p className="no-participants">No students joined yet</p>
@@ -31,7 +39,7 @@ const ParticipantsPanel = ({ participants, onClose }) => {
                 <span className="participant-name">{student.name}</span>
                 {role === 'teacher' && (
                   <button
-                    className="kick-button"
+                    className="kick-link"
                     onClick={() => handleRemoveStudent(student.id)}
                   >
                     Kick out
@@ -47,4 +55,3 @@ const ParticipantsPanel = ({ participants, onClose }) => {
 };
 
 export default ParticipantsPanel;
-

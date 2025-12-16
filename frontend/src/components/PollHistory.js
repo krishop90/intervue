@@ -2,53 +2,49 @@ import React from 'react';
 import './PollHistory.css';
 
 const PollHistory = ({ history, onClose }) => {
-  if (!history || history.length === 0) {
-    return (
-      <div className="poll-history-overlay" onClick={onClose}>
-        <div className="poll-history-panel" onClick={(e) => e.stopPropagation()}>
-          <div className="poll-history-header">
-            <h2>View Poll History</h2>
-            <button className="close-button" onClick={onClose}>×</button>
-          </div>
-          <p className="no-history">No poll history available</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="poll-history-overlay" onClick={onClose}>
       <div className="poll-history-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="poll-history-header">
-          <h2>View Poll History</h2>
-          <button className="close-button" onClick={onClose}>×</button>
+        <div className="history-page-header">
+           <h1>View <strong>Poll History</strong></h1>
+           <button className="close-btn-history" onClick={onClose}>×</button>
         </div>
-        <div className="poll-history-list">
-          {history.map((poll, index) => (
-            <div key={index} className="poll-history-item">
-              <h3>Question {index + 1}: {poll.question}</h3>
-              <div className="history-results">
-                {poll.options.map((option, optIndex) => {
-                  const result = poll.results[optIndex] || { count: 0, percentage: 0 };
-                  return (
-                    <div key={optIndex} className="history-result-item">
-                      <div className="history-result-header">
-                        <span className="history-option-number">{optIndex + 1}</span>
-                        <span className="history-option-text">{option}</span>
-                        <span className="history-percentage">{result.percentage}%</span>
-                      </div>
-                      <div className="history-result-bar-container">
-                        <div
-                          className="history-result-bar"
-                          style={{ width: `${result.percentage}%` }}
-                        />
-                      </div>
+        
+        <div className="history-scroll-container">
+            {(!history || history.length === 0) ? (
+                <p className="no-history-msg">No polls recorded yet.</p>
+            ) : (
+                history.map((poll, index) => (
+                    <div key={index} className="history-item-block">
+                        <h3 className="history-q-label">Question {index + 1}</h3>
+                        
+                        <div className="history-q-box-dark">
+                            <span className="h-q-text">{poll.question}</span>
+                        </div>
+
+                        <div className="history-results-stack">
+                            {poll.options.map((option, optIndex) => {
+                                const result = poll.results[optIndex] || { count: 0, percentage: 0 };
+                                return (
+                                    <div key={optIndex} className="h-result-row">
+                                        <div 
+                                            className="h-fill-bar" 
+                                            style={{ width: `${result.percentage}%` }}
+                                        ></div>
+                                        <div className="h-content">
+                                            <div className="h-left">
+                                                <span className="h-circle">{optIndex + 1}</span>
+                                                <span className="h-opt-text">{option}</span>
+                                            </div>
+                                            <span className="h-percent">{result.percentage}%</span>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                ))
+            )}
         </div>
       </div>
     </div>
@@ -56,4 +52,3 @@ const PollHistory = ({ history, onClose }) => {
 };
 
 export default PollHistory;
-
