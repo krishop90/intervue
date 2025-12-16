@@ -13,8 +13,13 @@ const io = socketIo(server, {
     methods: ["GET", "POST"]
   }
 });
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://intervuee.onrender.com"
+  ]
+}));
 
-app.use(cors());
 app.use(express.json());
 
 // Store poll state
