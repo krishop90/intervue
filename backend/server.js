@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: "https://intervuee.onrender.com" || "http://localhost:3000",
     methods: ["GET", "POST"]
   }
 });
